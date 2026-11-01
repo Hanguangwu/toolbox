@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import { tools, tagCounts, tagName, TAG_MIN_FOR_PAGE, categoryName } from '../../lib/tools';
+import type { Tool } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return tagCounts
+    .filter((t) => t.count >= TAG_MIN_FOR_PAGE)
+    .map((t) => ({
+      params: { slug: t.id },
+      props: { tag: t, items: tools.filter((tool) => tool.tags.includes(t.id)) },
+    }));
+}
+
+interface Props {
+  tag: { id: string; name: string; count: number };
+  items: Tool[];
+}
+
+const { tag, items } = Astro.props;
+
+const categories = [...new Set(items.map((t) => t.category))].map((id) => ({
+  id,
+  name: categoryName(id),
+  count: items.filter((t) => t.category === id).length,
+}));
+
+const siblings = tagCounts.filter((t) => t.id !== tag.id && t.count >= TAG_MIN_FOR_PAGE).slice(0, 10);
+---
+
+<Base
+  title={`#${tag.name} · 工具岛`}
+  description={`带「${tag.name}」标签的 ${items.length} 个工具。`}
+>
+  <main class="shell detail">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">工具岛</a>
+      <span aria-hidden="true">/</span>
+      <span>#{tag.name}</span>
+    </nav>
+
+    <div class="pagehead">
+      <h1>#{tag.name}</h1>
+      <p class="pagehead__meta">{items.length} 个工具</p>
+    </div>
+
+    <ul class="grid">
+      {
+        items.map((t) => (
+          <li class="grid__item">
+            <Card tool={t} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <nav class="pagefoot" aria-label="其他标签">
+      <h2 class="pagefoot__title">其他标签</h2>
+      <div class="pagefoot__chips">
+        {siblings.map((t) => <a class="chip" href={`/tag/${t.id}/`}>#{t.name}</a>)}
+      </div>
+    </nav>
+
+    <nav class="pagefoot" aria-label="按分类浏览">
+      <h2 class="pagefoot__title">出现在这些分类</h2>
+      <div class="pagefoot__chips">
+        {categories.map((c) => (
+          <a class="chip chip--category" href={`/category/${c.id}/`}>
+            {c.name} <span class="chipbtn__count">{c.count}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  </main>
+</Base>

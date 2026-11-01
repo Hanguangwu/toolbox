@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import Card from '../../components/Card.astro';
+import { categories, tools, categoryCounts, tagName } from '../../lib/tools';
+import type { Tool } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return categoryCounts.map((c) => ({
+    params: { slug: c.id },
+    props: { category: c, items: tools.filter((t) => t.category === c.id) },
+  }));
+}
+
+interface Props {
+  category: { id: string; name: string; hint?: string; count: number };
+  items: Tool[];
+}
+
+const { category, items } = Astro.props;
+
+// 同分类下出现最多的标签，作为"相关标签"入口
+const relatedTags = [...new Set(items.flatMap((t) => t.tags))]
+  .map((id) => ({ id, name: tagName(id), count: items.filter((t) => t.tags.includes(id)).length }))
+  .sort((a, b) => b.count - a.count)
+  .slice(0, 8);
+
+const siblings = categories.filter((c) => c.id !== category.id);
+---
+
+<Base
+  title={`${category.name} · 工具岛`}
+  description={`${category.name}分类下的 ${items.length} 个工具：${category.hint ?? ''}`}
+>
+  <main class="shell detail">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">工具岛</a>
+      <span aria-hidden="true">/</span>
+      <span>{category.name}</span>
+    </nav>
+
+    <div class="pagehead">
+      <h1>{category.name}</h1>
+      <p class="pagehead__sub">{category.hint}</p>
+      <p class="pagehead__meta">{items.length} 个工具</p>
+    </div>
+
+    <ul class="grid">
+      {
+        items.map((t) => (
+          <li class="grid__item">
+            <Card tool={t} />
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      relatedTags.length > 0 && (
+        <section class="pagefoot" aria-label="相关标签">
+          <h2 class="pagefoot__title">相关标签</h2>
+          <div class="pagefoot__chips">
+            {relatedTags.map((t) => (
+              <a class="chip" href={`/?tags=${t.id}`}>
+                #{t.name} <span class="chipbtn__count">{t.count}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <nav class="pagefoot" aria-label="其他分类">
+      <h2 class="pagefoot__title">其他分类</h2>
+      <div class="pagefoot__chips">
+        {siblings.map((c) => <a class="chip chip--category" href={`/category/${c.id}/`}>{c.name}</a>)}
+      </div>
+    </nav>
+  </main>
+</Base>

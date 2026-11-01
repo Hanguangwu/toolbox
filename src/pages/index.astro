@@ -1,10 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import Card from '../components/Card.astro';
-import { tools, categoryCounts, tagCounts, searchBlob, categoryName } from '../lib/tools';
+import {
+  tools,
+  categoryCounts,
+  tagCounts,
+  platformCounts,
+  searchBlob,
+  categoryName,
+} from '../lib/tools';
 
 const topTags = tagCounts.slice(0, 10);
-const featured = tools.filter((t) => t.featured).slice(0, 4);
+// 筛选行只放已有 2 条以上的标签，长尾靠搜索与标签页承接
+const facetTags = tagCounts.filter((t) => t.count >= 2);
 ---
 
 <Base
@@ -45,17 +53,45 @@ const featured = tools.filter((t) => t.featured).slice(0, 4);
     </div>
   </header>
 
-  <nav class="filters" aria-label="按分类筛选">
+  <nav class="filters" aria-label="筛选工具">
     <div class="shell filters__row">
       <span class="filters__label">分类</span>
-      <button type="button" class="chipbtn" data-cat="all" aria-pressed="true">
+      <button
+        type="button"
+        class="chipbtn"
+        data-facet="category"
+        data-value="all"
+        aria-pressed="true"
+      >
         全部<span class="chipbtn__count">{tools.length}</span>
       </button>
       {
         categoryCounts.map((c) => (
-          <button type="button" class="chipbtn" data-cat={c.id} aria-pressed="false">
+          <button type="button" class="chipbtn" data-facet="category" data-value={c.id} aria-pressed="false">
             {c.name}
             <span class="chipbtn__count">{c.count}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="shell filters__row filters__row--sub">
+      <span class="filters__label">标签</span>
+      {
+        facetTags.map((t) => (
+          <button type="button" class="chipbtn chipbtn--sub" data-facet="tag" data-value={t.id} aria-pressed="false">
+            #{t.name}
+            <span class="chipbtn__count">{t.count}</span>
+          </button>
+        ))
+      }
+      <span class="filters__sep" aria-hidden="true"></span>
+      <span class="filters__label">平台</span>
+      {
+        platformCounts.map((p) => (
+          <button type="button" class="chipbtn chipbtn--sub" data-facet="platform" data-value={p.id} aria-pressed="false">
+            {p.name}
+            <span class="chipbtn__count">{p.count}</span>
           </button>
         ))
       }
@@ -73,12 +109,27 @@ const featured = tools.filter((t) => t.featured).slice(0, 4);
     <ul class="grid" id="grid">
       {
         tools.map((t) => (
-          <li class="grid__item" data-cat={t.category} data-s={searchBlob(t)}>
+          <li
+            class="grid__item"
+            data-id={t.id}
+            data-cat={t.category}
+            data-tags={t.tags.join(',')}
+            data-platforms={(t.platforms ?? []).join(',')}
+            data-s={searchBlob(t)}
+            data-name={t.name}
+            data-desc={t.description}
+          >
             <Card tool={t} />
           </li>
         ))
       }
     </ul>
+
+    <div class="loadmore" id="loadmore" hidden>
+      <button type="button" class="btn" id="loadmore-btn">
+        加载更多<span class="chipbtn__count">还有 <span id="loadmore-n">0</span> 条</span>
+      </button>
+    </div>
 
     <div class="empty" id="empty" hidden>
       <span class="empty__emoji" aria-hidden="true">🏝</span>
@@ -98,104 +149,6 @@ const featured = tools.filter((t) => t.featured).slice(0, 4);
   </footer>
 
   <script>
-    const input = document.getElementById('q') as HTMLInputElement | null;
-    const grid = document.getElementById('grid');
-    const items = Array.from(document.querySelectorAll<HTMLElement>('.grid__item'));
-    const resultNum = document.getElementById('result-num');
-    const empty = document.getElementById('empty');
-    const clearBtn = document.getElementById('clear');
-    const clearEmpty = document.getElementById('clear-empty');
-    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chipbtn[data-cat]'));
-    const tagpills = Array.from(document.querySelectorAll<HTMLButtonElement>('.tagpill'));
-
-    if (input && grid) {
-      let activeCat = 'all';
-
-      const apply = (syncUrl = true) => {
-        const q = input.value.trim().toLowerCase();
-        let shown = 0;
-
-        for (const el of items) {
-          const okCat = activeCat === 'all' || el.dataset.cat === activeCat;
-          const blob = el.dataset.s ?? '';
-          const okQ = q === '' || blob.includes(q);
-          const visible = okCat && okQ;
-          el.hidden = !visible;
-          if (visible) shown++;
-        }
-
-        if (resultNum) resultNum.textContent = String(shown);
-        if (empty) empty.hidden = shown !== 0;
-        if (grid) grid.hidden = shown === 0;
-
-        const dirty = q !== '' || activeCat !== 'all';
-        if (clearBtn) clearBtn.hidden = !dirty;
-
-        if (syncUrl) {
-          const params = new URLSearchParams();
-          if (q) params.set('q', input.value.trim());
-          if (activeCat !== 'all') params.set('cat', activeCat);
-          const qs = params.toString();
-          history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
-        }
-      };
-
-      const setCategory = (cat: string) => {
-        activeCat = cat;
-        for (const chip of chips) {
-          chip.setAttribute('aria-pressed', String(chip.dataset.cat === cat));
-        }
-        apply();
-      };
-
-      const clear = () => {
-        input.value = '';
-        setCategory('all');
-        input.focus();
-      };
-
-      input.addEventListener('input', () => apply());
-
-      for (const chip of chips) {
-        chip.addEventListener('click', () => setCategory(chip.dataset.cat ?? 'all'));
-      }
-
-      for (const pill of tagpills) {
-        pill.addEventListener('click', () => {
-          input.value = pill.dataset.q ?? '';
-          apply();
-          input.focus();
-        });
-      }
-
-      clearBtn?.addEventListener('click', clear);
-      clearEmpty?.addEventListener('click', clear);
-
-      document.addEventListener('keydown', (e) => {
-        const target = e.target as HTMLElement;
-        const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName);
-        if (e.key === '/' && !typing) {
-          e.preventDefault();
-          input.focus();
-        }
-        if (e.key === 'Escape' && document.activeElement === input && input.value) {
-          input.value = '';
-          apply();
-        }
-      });
-
-      // 首次进入：还原 URL 状态
-      const params = new URLSearchParams(location.search);
-      const q0 = params.get('q');
-      if (q0) input.value = q0;
-      const cat0 = params.get('cat');
-      if (cat0) {
-        activeCat = cat0;
-        for (const chip of chips) {
-          chip.setAttribute('aria-pressed', String(chip.dataset.cat === cat0));
-        }
-      }
-      apply(false);
-    }
+    import '../scripts/island.ts';
   </script>
 </Base>

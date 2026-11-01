@@ -78,6 +78,27 @@ export const tagCounts = [...tagUsage.entries()]
   .map(([id, count]) => ({ id, name: tagName(id), count }))
   .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'zh-Hans-CN'));
 
+/** 标签页生成阈值：低于该值的标签只作为筛选条件，不单独成页（避免薄页面） */
+export const TAG_MIN_FOR_PAGE = 3;
+
+export const PLATFORM_LABELS: Record<string, string> = {
+  web: 'Web',
+  windows: 'Windows',
+  macos: 'macOS',
+  linux: 'Linux',
+  android: 'Android',
+  ios: 'iOS',
+  cli: 'CLI',
+  docker: 'Docker',
+};
+
+const platformUsage = new Map<string, number>();
+for (const t of tools) for (const p of t.platforms ?? []) platformUsage.set(p, (platformUsage.get(p) ?? 0) + 1);
+
+export const platformCounts = [...platformUsage.entries()]
+  .map(([id, count]) => ({ id, name: PLATFORM_LABELS[id] ?? id, count }))
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+
 /** 由名称派生稳定的徽章色相，避免同一工具每次渲染变颜色 */
 export function hueOf(name: string): number {
   let h = 0;

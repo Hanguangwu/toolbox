@@ -251,6 +251,38 @@ img {
   font: 500 10px/1 var(--font-mono);
   opacity: 0.75;
 }
+.chipbtn--sub {
+  padding: 4px 10px;
+  font-weight: 400;
+  background: transparent;
+}
+.chipbtn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  background: transparent;
+}
+.filters__row--sub {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(74, 64, 52, 0.12);
+}
+.filters__sep {
+  flex: none;
+  width: 1px;
+  height: 16px;
+  margin: 0 var(--sp-1);
+  background: rgba(74, 64, 52, 0.16);
+}
+
+/* ---------- 加载更多 ---------- */
+.loadmore {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 var(--sp-8);
+}
+.loadmore .btn {
+  gap: 10px;
+}
 
 /* ---------- 结果头 ---------- */
 .resultbar {
@@ -426,6 +458,64 @@ img {
   color: #8a5a1e;
   border-color: rgba(138, 90, 30, 0.18);
   font-weight: 600;
+}
+
+/* ---------- 分类页 / 标签页 ---------- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--ac-ink-faint);
+}
+.breadcrumb a {
+  color: var(--ac-info);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pagehead {
+  padding: var(--sp-5) 0 var(--sp-6);
+}
+.pagehead h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+.pagehead__sub {
+  margin: var(--sp-2) 0 0;
+  color: var(--ac-ink-soft);
+  font-size: var(--fs-sm);
+}
+.pagehead__meta {
+  margin: var(--sp-2) 0 0;
+  font: 500 var(--fs-xs) / 1.5 var(--font-mono);
+  color: var(--ac-ink-faint);
+}
+.pagefoot {
+  padding: var(--sp-5) 0;
+  border-top: 1px solid rgba(74, 64, 52, 0.1);
+}
+.pagefoot__title {
+  font-size: var(--fs-sm);
+  color: var(--ac-ink-soft);
+  margin-bottom: var(--sp-3);
+}
+.pagefoot__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+.pagefoot__chips .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  text-decoration: none;
+  font-size: var(--fs-xs);
+}
+.pagefoot__chips .chip:hover {
+  border-color: rgba(60, 107, 72, 0.4);
 }
 
 /* ---------- 空态 / 页脚 ---------- */
