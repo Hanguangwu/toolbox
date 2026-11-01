@@ -90,6 +90,20 @@ check('CI 中解析到 localhost 直接失败', () => {
   assert.throws(() => resolveSiteUrlForBuild({ CI: '1' }), /localhost/);
 });
 
+check('GITHUB_PAGES_URL 兜底（Pages 镜像构建）', () => {
+  assert.equal(
+    resolveSiteUrlForBuild({ CI: '1', GITHUB_PAGES_URL: 'https://hanguangwu.github.io/toolbox' }),
+    'https://hanguangwu.github.io/toolbox'
+  );
+});
+
+check('CI 中 GITHUB_PAGES_URL 可替代 Vercel 变量', () => {
+  assert.equal(
+    resolveSiteUrlForBuild({ CI: '1', GITHUB_PAGES_URL: 'hanguangwu.github.io/toolbox' }),
+    'https://hanguangwu.github.io/toolbox'
+  );
+});
+
 check('CI 中拿到真实域名则通过', () => {
   assert.equal(
     resolveSiteUrlForBuild({ CI: '1', VERCEL_PROJECT_PRODUCTION_URL: 'mytools.example.com' }),

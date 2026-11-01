@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+# 域名来源（单一来源，顺序敏感）：
+#   1. Vercel 自定义域名 —— resolve-site-url 步骤从 Vercel API 拉取项目绑定的生产域名；
+#      在 Vercel 控制台换域名后此处自动跟随，无需改仓库。
+#   2. GITHUB_PAGES_URL —— Actions 注入的 Pages 镜像入口（<owner>.github.io/<repo>），
+#      作为 Pages 镜像构建的兜底。
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      vercel-domain: ${{ steps.site-url.outputs.vercel-domain }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: install deps
+        run: pnpm install --frozen-lockfile
+
+      # ---- 三道闸 ----
+      - name: "gate 1 · validate"
+        run: pnpm validate
+
+      - name: "gate 2 · test"
+        run: pnpm test
+
+      # 从 Vercel API 拉取当前项目绑定的生产域名（自定义域名或平台临时域名），
+      # 注入为 SITE_URL，使 canonical/sitemap 与实际线上域名一致。
+      - name: "resolve site-url from Vercel"
+        id: site-url
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          DOMAIN="$(node scripts/vercel-domain.mjs)"
+          echo "vercel-domain=$DOMAIN" >> "$GITHUB_OUTPUT"
+          echo "SITE_URL 来源: $DOMAIN"
+
+      - name: "gate 3 · build (Vercel domain)"
+        env:
+          CI: "1"
+          SITE_URL: ${{ steps.site-url.outputs.vercel-domain }}
+        run: pnpm build
+
+      - name: "verify build artifacts"
+        run: node scripts/verify-dist.mjs
+
+      - name: "upload dist"
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      # ---- 部署 ----
+
+      - name: "deploy · Vercel (prebuilt, prod)"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          pnpm add -g vercel
+          vercel deploy --prebuilt dist --prod
+          echo "已部署到 ${{ steps.site-url.outputs.vercel-domain }}"
+
+      - name: "deploy · Vercel (PR previews)"
+        if: github.event_name == 'pull_request'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          pnpm add -g vercel
+          vercel deploy --prebuilt dist
+
+      - name: "deploy · GitHub Pages mirror"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          PAGES_PAT: ${{ secrets.PAGES_PAT }}
+          GH_OWNER: ${{ github.repository_owner }}
+          GH_REPO: ${{ github.event.repository.name }}
+        run: node scripts/deploy-pages.mjs

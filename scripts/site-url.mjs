@@ -36,6 +36,7 @@ export function resolveSiteUrl(env = process.env) {
     ['SITE_URL', env.SITE_URL],
     ['VERCEL_PROJECT_PRODUCTION_URL', env.VERCEL_PROJECT_PRODUCTION_URL],
     ['VERCEL_URL', env.VERCEL_URL],
+    ['GITHUB_PAGES_URL', env.GITHUB_PAGES_URL],
   ];
 
   for (const [, raw] of chain) {

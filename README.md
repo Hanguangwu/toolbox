@@ -75,7 +75,28 @@ raw/                                # 剪藏素材（gitignore，不进构建）
 
 响应头（CSP / 缓存 / 安全头）由 `vercel.json` 提供，GitHub Pages 镜像无响应头控制（设计报告 ADR-5 已确认：Pages 只做镜像/灾备）。
 
-## 部署检查清单
+## 部署
+
+Vercel（生产）+ GitHub Pages（镜像）双目标，由 `.github/workflows/ci.yml` 全自动完成。
+
+### 三道闸 + 产物自检
+
+CI 顺序：`validate` → `test` → `build` → `verify:dist`。`verify:dist` 拦"构建成功但 SEO 元数据坏了"的情况（canonical 不得含 localhost/占位域、分片一致性、首页体积下限）。
+
+### 域名管理（单一来源）
+
+生产域名由 `scripts/vercel-domain.mjs` 从 Vercel API 拉取（读 `domains[]`，自定义域名优先于平台临时域名），注入 `SITE_URL` 参与构建。**换域名只需在 Vercel 控制台改一处**，CI 自动跟随。Pages 镜像用 `GITHUB_PAGES_URL`（`<owner>.github.io/<repo>`）。
+
+### 需要人工提供的 secret
+
+| Secret | 用途 | 权限 |
+|---|---|---|
+| `VERCEL_TOKEN` | `vercel deploy --prebuilt` | 项目部署 |
+| `VERCEL_ORG_ID` | 多 org 账号定位 | 只读 |
+| `VERCEL_PROJECT_ID` | 显式指定项目（推荐） | 只读 |
+| `PAGES_PAT` | Pages 镜像推送到 `<repo>-pages` | 仅该仓库 `contents:write` |
+
+### 部署检查清单
 
 生产上线前确认：
 
