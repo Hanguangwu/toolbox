@@ -27,7 +27,7 @@ const facetTags = tagCounts.filter((t) => t.count >= 2);
         按名称、标签或用途搜索。每个条目都有分类与标签，由 AI Agent 维护，来源可查。
       </p>
 
-      <form class="search" role="search" onsubmit="return false">
+      <form class="search" role="search">
         <span class="search__icon" aria-hidden="true">🔍</span>
         <input
           id="q"
@@ -150,5 +150,10 @@ const facetTags = tagCounts.filter((t) => t.count >= 2);
 
   <script>
     import '../scripts/island.ts';
+
+// 表单 preventDefault 不能用内联处理器（CSP script-src 'self' 会拦截），挂到主线程控制器
+document
+  .querySelector('form.search')
+  ?.addEventListener('submit', (event) => event.preventDefault());
   </script>
 </Base>

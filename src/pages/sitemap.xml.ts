@@ -1,12 +1,12 @@
 import type { APIRoute } from 'astro';
 import { tools, categoryCounts, tagCounts, TAG_MIN_FOR_PAGE } from '../lib/tools';
+import { absolute } from '../lib/url';
 
 const escape = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export const GET: APIRoute = ({ site }) => {
-  const base = site ?? new URL('https://toolbox.example.com');
-  const abs = (path: string) => new URL(path, base).href;
+  const abs = (path: string) => absolute(path, site);
 
   const urls: Array<{ loc: string; changefreq: string; priority: string; lastmod?: string }> = [
     { loc: abs('/'), changefreq: 'daily', priority: '1.0' },

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/url';
 ---
 
 <Base title="找不到这个页面" description="页面不存在，回到工具岛继续浏览。">
@@ -8,7 +9,7 @@ import Base from '../layouts/Base.astro';
       <span class="empty__emoji" aria-hidden="true">🏝</span>
       <h1>这座岛上没有这个页面</h1>
       <p>链接可能已经移动或删除。</p>
-      <p><a class="btn btn--primary" href="/">回到工具岛</a></p>
+      <p><a class="btn btn--primary" href={withBase('/')}>回到工具岛</a></p>
     </div>
   </main>
 </Base>

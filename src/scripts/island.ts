@@ -204,8 +204,8 @@ if (input && grid && items.length) {
 
   const startWorker = () => {
     try {
-      const base = import.meta.env.BASE_URL || '/';
-      const manifestUrl = new URL(`${base}search/manifest.json`.replace(/\/{2,}/g, '/'), location.origin).href;
+      const base = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+      const manifestUrl = new URL(`${base}/search/manifest.json`, location.origin).href;
 
       worker = new Worker(new URL('../lib/search-worker.ts', import.meta.url), { type: 'module' });
 

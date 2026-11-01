@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import '../styles/site.css';
+import { absolute, BASE } from '../lib/url';
 
 interface Props {
   title: string;
@@ -12,7 +13,11 @@ const {
   description = '收录实用工具的工具集，卡片式浏览，支持中文与英文搜索。',
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site);
+// Astro 在带 base 的构建里 pathname 可能已含 base，这里先去重再加，保证幂等
+const stripBase = (p: string) =>
+  BASE && (p === BASE || p.startsWith(`${BASE}/`)) ? p.slice(BASE.length) || '/' : p;
+
+const canonical = absolute(stripBase(Astro.url.pathname), Astro.site);
 const pageTitle = title.includes('工具岛') ? title : `${title} · 工具岛`;
 ---
 
@@ -31,6 +36,7 @@ const pageTitle = title.includes('工具岛') ? title : `${title} · 工具岛`;
     />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
     <slot name="head" />
   </head>

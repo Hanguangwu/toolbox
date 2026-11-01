@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Card from '../../components/Card.astro';
 import { tools, tagCounts, tagName, TAG_MIN_FOR_PAGE, categoryName } from '../../lib/tools';
 import type { Tool } from '../../lib/tools';
+import { withBase } from '../../lib/url';
 
 export function getStaticPaths() {
   return tagCounts
@@ -35,7 +36,7 @@ const siblings = tagCounts.filter((t) => t.id !== tag.id && t.count >= TAG_MIN_F
 >
   <main class="shell detail">
     <nav class="breadcrumb" aria-label="面包屑">
-      <a href="/">工具岛</a>
+      <a href={withBase('/')}>工具岛</a>
       <span aria-hidden="true">/</span>
       <span>#{tag.name}</span>
     </nav>
@@ -58,7 +59,7 @@ const siblings = tagCounts.filter((t) => t.id !== tag.id && t.count >= TAG_MIN_F
     <nav class="pagefoot" aria-label="其他标签">
       <h2 class="pagefoot__title">其他标签</h2>
       <div class="pagefoot__chips">
-        {siblings.map((t) => <a class="chip" href={`/tag/${t.id}/`}>#{t.name}</a>)}
+        {siblings.map((t) => <a class="chip" href={withBase(`/tag/${t.id}/`)}>#{t.name}</a>)}
       </div>
     </nav>
 
@@ -66,7 +67,7 @@ const siblings = tagCounts.filter((t) => t.id !== tag.id && t.count >= TAG_MIN_F
       <h2 class="pagefoot__title">出现在这些分类</h2>
       <div class="pagefoot__chips">
         {categories.map((c) => (
-          <a class="chip chip--category" href={`/category/${c.id}/`}>
+          <a class="chip chip--category" href={withBase(`/category/${c.id}/`)}>
             {c.name} <span class="chipbtn__count">{c.count}</span>
           </a>
         ))}

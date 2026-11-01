@@ -1,6 +1,7 @@
 ---
 import { categoryName, hueOf, initialOf } from '../lib/tools';
 import type { Tool } from '../lib/tools';
+import { withBase } from '../lib/url';
 
 interface Props {
   tool: Tool;
@@ -28,7 +29,7 @@ const hue = hueOf(tool.name);
       )
     }
     <h3 class="card__name">
-      <a href={`/tool/${tool.id}/`}>{tool.name}</a>
+      <a href={withBase(`/tool/${tool.id}/`)}>{tool.name}</a>
     </h3>
   </div>
 
