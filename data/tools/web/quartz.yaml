@@ -1,0 +1,15 @@
+id: quartz
+name: Quartz
+description: "把 Markdown 笔记目录构建成带全文搜索与关系图的静态网站，适合发布 Obsidian 式知识库。"
+url: https://github.com/jackyzha0/quartz
+category: web
+tags: [static-site, markdown, knowledge-base, search]
+platforms: [cli, web]
+open_source: true
+pricing: open-source
+featured: true
+status: published
+repo: jackyzha0/quartz
+source: https://github.com/jackyzha0/quartz
+added_at: 2026-11-01
+updated_at: 2026-11-01

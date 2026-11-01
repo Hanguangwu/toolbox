@@ -1,0 +1,16 @@
+id: cyberchef
+name: CyberChef
+description: "在浏览器本地完成编码解码、加解密与数据分析的拖拽式工作台，操作可串成配方链复用，数据不出本机。"
+url: https://gchq.github.io/CyberChef/
+category: security
+tags: [encoding, crypto, offline, ctf]
+aliases: [网络瑞士军刀, cyber chef]
+platforms: [web]
+open_source: true
+pricing: open-source
+featured: true
+status: published
+repo: gchq/CyberChef
+source: https://github.com/gchq/CyberChef
+added_at: 2026-11-01
+updated_at: 2026-11-01

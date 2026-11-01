@@ -1,0 +1,13 @@
+id: rmux
+name: rmux
+description: "Rust 编写的通用终端复用器，提供带类型的 SDK，可用代码驱动任意 CLI 或 TUI 程序。"
+url: https://github.com/Helvesec/rmux
+category: dev
+tags: [cli, terminal, sdk, rust]
+platforms: [linux, macos, windows]
+open_source: true
+status: published
+repo: Helvesec/rmux
+source: https://github.com/Helvesec/rmux
+added_at: 2026-11-01
+updated_at: 2026-11-01

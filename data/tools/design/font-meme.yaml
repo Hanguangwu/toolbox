@@ -1,0 +1,12 @@
+id: font-meme
+name: Font Meme
+description: "在线识别图片中的字体、转换字体格式并提供免费字体下载，适合做视觉还原时找同款。"
+url: https://fontmeme.com/zh/
+category: design
+tags: [font, typography, image-recognition]
+aliases: [fontmeme]
+platforms: [web]
+status: published
+source: https://fontmeme.com/zh/
+added_at: 2026-11-01
+updated_at: 2026-11-01

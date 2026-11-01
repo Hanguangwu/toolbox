@@ -1,0 +1,15 @@
+id: ktransformers
+name: KTransformers
+description: "开源的大模型推理优化框架，用 CPU/GPU 分层存储与算子优化，在有限显存下运行更大的模型。"
+url: https://github.com/kvcache-ai/KTransformers
+category: ai
+tags: [llm-inference, optimization, open-source]
+aliases: [ktransformers]
+platforms: [linux]
+open_source: true
+pricing: open-source
+status: published
+repo: kvcache-ai/KTransformers
+source: https://github.com/kvcache-ai/KTransformers
+added_at: 2026-11-01
+updated_at: 2026-11-01

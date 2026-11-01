@@ -1,0 +1,12 @@
+id: ai-resume
+name: AI简历
+description: "在线简历池，集中管理多份简历版本并按岗位取用，减少重复修改。"
+url: https://www.qrientresume.com/zh
+category: productivity
+tags: [resume, career]
+aliases: [ai resume, 简历池]
+platforms: [web]
+status: published
+source: https://www.qrientresume.com/zh
+added_at: 2026-11-01
+updated_at: 2026-11-01

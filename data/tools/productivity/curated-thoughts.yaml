@@ -1,0 +1,13 @@
+id: curated-thoughts
+name: Curated Thoughts
+description: "基于 Tauri 与本地 Ollama 的私人第二大脑桌面应用，笔记与模型推理都留在本机。"
+url: https://github.com/equationalapplications/curated-thoughts
+category: productivity
+tags: [note-taking, local-llm, privacy]
+platforms: [windows, macos, linux]
+open_source: true
+status: published
+repo: equationalapplications/curated-thoughts
+source: https://github.com/equationalapplications/curated-thoughts
+added_at: 2026-11-01
+updated_at: 2026-11-01

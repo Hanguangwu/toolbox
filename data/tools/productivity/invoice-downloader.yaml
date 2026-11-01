@@ -1,0 +1,14 @@
+id: invoice-downloader
+name: Invoice Downloader
+description: "从邮箱批量收集 PDF/OFD/XML 电子发票，做 OCR 识别、分类归档并生成 Excel 汇总，便于报销。"
+url: https://github.com/EthanYoQ/Invoice-Downloader
+category: productivity
+tags: [invoice, ocr, excel, batch]
+aliases: [发票下载器]
+platforms: [windows, macos]
+open_source: true
+status: published
+repo: EthanYoQ/Invoice-Downloader
+source: https://github.com/EthanYoQ/Invoice-Downloader
+added_at: 2026-11-01
+updated_at: 2026-11-01

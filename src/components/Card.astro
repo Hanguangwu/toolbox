@@ -1,0 +1,49 @@
+---
+import { categoryName, hueOf, initialOf } from '../lib/tools';
+import type { Tool } from '../lib/tools';
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const hue = hueOf(tool.name);
+---
+
+<article class="card" style={`--h:${hue}`}>
+  <div class="card__head">
+    {
+      tool.logo ? (
+        <img
+          class="card__logo"
+          src={tool.logo}
+          alt=""
+          width="40"
+          height="40"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <span class="card__badge" aria-hidden="true">{initialOf(tool.name)}</span>
+      )
+    }
+    <h3 class="card__name">
+      <a href={`/tool/${tool.id}/`}>{tool.name}</a>
+    </h3>
+  </div>
+
+  <p class="card__desc">{tool.description}</p>
+
+  <div class="card__meta">
+    <span class="chip chip--category">{categoryName(tool.category)}</span>
+    {tool.tags.map((tag) => <span class="chip">#{tag}</span>)}
+  </div>
+
+  <a
+    class="card__out"
+    href={tool.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`访问 ${tool.name} 官网（新窗口打开）`}
+  >↗</a>
+</article>

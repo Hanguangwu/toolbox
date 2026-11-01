@@ -1,0 +1,14 @@
+id: dsh-android
+name: DSH-Android
+description: "在安卓手机上以单个 APK 运行 DeepSeek Harness，无需 ROOT 与 Termux，并支持读屏操作与定时自动化。"
+url: https://github.com/jackwener/DSH-Android
+category: system
+tags: [android, automation, ai-agent]
+aliases: [deepseek harness android]
+platforms: [android]
+open_source: true
+status: published
+repo: jackwener/DSH-Android
+source: https://github.com/jackwener/DSH-Android
+added_at: 2026-11-01
+updated_at: 2026-11-01

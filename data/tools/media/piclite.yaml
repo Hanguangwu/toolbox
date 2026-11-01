@@ -1,0 +1,16 @@
+id: piclite
+name: PicLite 图轻
+description: "本地批量压缩图片与 GIF 的桌面工作台，支持格式转换、水印与目标体积控制，文件不上传服务器。"
+url: https://amiaoapp.github.io/PicLite/
+category: media
+tags: [image-compression, gif, batch, privacy]
+aliases: [图轻, pic lite]
+platforms: [web, windows, macos, linux, docker]
+open_source: true
+pricing: open-source
+featured: true
+status: published
+repo: amiaoapp/PicLite
+source: https://github.com/amiaoapp/PicLite
+added_at: 2026-11-01
+updated_at: 2026-11-01

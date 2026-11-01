@@ -1,0 +1,14 @@
+id: concat
+name: Concat
+description: "本地运行的跨平台视频剪辑器，无需账号与上传，可通过 JSON-RPC 接口用脚本驱动剪辑流程。"
+url: https://github.com/jub0t/Concat
+category: media
+tags: [video-editing, offline, scriptable]
+platforms: [windows, macos, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: jub0t/Concat
+source: https://github.com/jub0t/Concat
+added_at: 2026-11-01
+updated_at: 2026-11-01

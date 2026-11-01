@@ -1,0 +1,13 @@
+id: obsidian-custom-attachment-location
+name: Obsidian Custom Attachment Location
+description: "Obsidian 插件，用变量规则自定义附件保存位置与命名，行为接近 Typora 的图片管理。"
+url: https://github.com/mnaoumov/obsidian-custom-attachment-location
+category: productivity
+tags: [obsidian, plugin, file-management]
+aliases: [custom attachment location]
+open_source: true
+status: published
+repo: mnaoumov/obsidian-custom-attachment-location
+source: https://github.com/mnaoumov/obsidian-custom-attachment-location
+added_at: 2026-11-01
+updated_at: 2026-11-01

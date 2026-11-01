@@ -1,0 +1,14 @@
+id: openwiki
+name: OpenWiki
+description: "为代码库自动生成并持续维护 Agent 文档的命令行工具，让 AI 协作时有稳定的项目上下文。"
+url: https://github.com/langchain-ai/openwiki
+category: dev
+tags: [documentation, cli, ai-agent]
+aliases: [open wiki]
+platforms: [cli]
+open_source: true
+status: published
+repo: langchain-ai/openwiki
+source: https://github.com/langchain-ai/openwiki
+added_at: 2026-11-01
+updated_at: 2026-11-01

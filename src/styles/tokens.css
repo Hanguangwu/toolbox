@@ -1,0 +1,68 @@
+/* 设计 Token —— 完整定义见 docs/design-report.md §8.2
+   原则：自然色只做背景/装饰；正文一律用 --ac-ink 系，保证 AA 对比度。 */
+:root {
+  /* 自然层（禁止用于小字号文字） */
+  --ac-sky: #bfe3f2;
+  --ac-sky-deep: #8fc9e0;
+  --ac-grass: #8cc96b;
+  --ac-grass-deep: #63a94a;
+  --ac-sand: #f3e3c3;
+
+  /* 表面层 */
+  --ac-paper: #fffdf6;
+  --ac-card: #fff9ec;
+  --ac-card-alt: #fff4de;
+  --ac-wood: #c89b6a;
+  --ac-wood-deep: #a87b4f;
+
+  /* 文本 */
+  --ac-ink: #4a4034;
+  --ac-ink-soft: #6e6257;
+  --ac-ink-faint: #948a7e;
+
+  /* 语义 */
+  --ac-accent: #e8a33d;
+  --ac-leaf: #4c9a5b;
+  --ac-info: #3f7fc1;
+  --ac-warn: #c9762b;
+  --ac-danger: #c4472f;
+
+  /* 形状 */
+  --ac-radius-sm: 10px;
+  --ac-radius: 16px;
+  --ac-radius-lg: 24px;
+  --ac-border: 2px solid rgba(74, 64, 52, 0.16);
+  --ac-shadow-sticker: 0 4px 0 rgba(74, 64, 52, 0.14);
+  --ac-shadow-lift: 0 4px 0 rgba(74, 64, 52, 0.14), 0 12px 28px rgba(74, 64, 52, 0.1);
+
+  /* 间距 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* 字号 */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --lh-sm: 1.6;
+  --lh-md: 1.75;
+
+  /* 动效 */
+  --ease-island: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur: 160ms;
+
+  /* 字体：P0 用系统栈；P1 再对展示字体做子集化 */
+  --font-display: "Resource Han Rounded CN", "LXGW WenKai", "PingFang SC",
+    "Microsoft YaHei UI", system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+}

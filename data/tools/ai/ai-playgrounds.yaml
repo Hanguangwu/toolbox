@@ -1,0 +1,12 @@
+id: ai-playgrounds
+name: AI Playgrounds
+description: "可离线使用的 AI 交互套件，用 15 个可检查的小实验帮学习者理解算法机制，无需账户。"
+url: https://lmdixon23.github.io/ai-playgrounds/
+category: ai
+tags: [offline, no-signup]
+platforms: [web]
+open_source: true
+status: published
+source: https://lmdixon23.github.io/ai-playgrounds/
+added_at: 2026-11-01
+updated_at: 2026-11-01

@@ -1,0 +1,13 @@
+id: ai-comic-skills
+name: AI Comic Skills
+description: "面向新手的 AI 漫剧创作技能包，覆盖剧本、分镜到剪辑出片的完整流程。"
+url: https://github.com/jis60224/ai-comic-skills
+category: ai
+tags: [ai-video, storytelling, skill]
+aliases: [ai comic, 漫剧]
+open_source: true
+status: published
+repo: jis60224/ai-comic-skills
+source: https://github.com/jis60224/ai-comic-skills
+added_at: 2026-11-01
+updated_at: 2026-11-01

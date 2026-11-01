@@ -1,0 +1,16 @@
+id: romm
+name: RomM
+description: "自托管的 ROM 管理与游戏库，自动抓取封面与元数据，并支持在浏览器里启动模拟器直接游玩。"
+url: https://github.com/rommapp/romm
+category: life
+tags: [self-hosted, games, docker]
+aliases: [rom manager]
+platforms: [docker]
+open_source: true
+pricing: open-source
+featured: true
+status: published
+repo: rommapp/romm
+source: https://github.com/rommapp/romm
+added_at: 2026-11-01
+updated_at: 2026-11-01

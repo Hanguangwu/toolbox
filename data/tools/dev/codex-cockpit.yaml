@@ -1,0 +1,14 @@
+id: codex-cockpit
+name: Codex Cockpit
+description: "在 Mac 与 Windows 上查看 Codex 的额度、用量与估算成本，避免长任务中途额度耗尽。"
+url: https://github.com/HouSiyuan2001/codex-cockpit
+category: dev
+tags: [codex, usage-monitor, desktop]
+aliases: [codex cockpit]
+platforms: [macos, windows]
+open_source: true
+status: published
+repo: HouSiyuan2001/codex-cockpit
+source: https://github.com/HouSiyuan2001/codex-cockpit
+added_at: 2026-11-01
+updated_at: 2026-11-01

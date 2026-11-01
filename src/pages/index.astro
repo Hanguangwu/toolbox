@@ -1,0 +1,201 @@
+---
+import Base from '../layouts/Base.astro';
+import Card from '../components/Card.astro';
+import { tools, categoryCounts, tagCounts, searchBlob, categoryName } from '../lib/tools';
+
+const topTags = tagCounts.slice(0, 10);
+const featured = tools.filter((t) => t.featured).slice(0, 4);
+---
+
+<Base
+  title="工具岛 · 工具集"
+  description={`收录 ${tools.length} 个实用工具，卡片式浏览，支持中文与英文搜索，按分类与标签筛选。`}
+>
+  <header class="hero">
+    <div class="shell hero__inner">
+      <span class="hero__badge">🏝 已收录 {tools.length} 个工具 · {categoryCounts.length} 个分类</span>
+      <h1>工具岛</h1>
+      <p class="hero__sub">
+        按名称、标签或用途搜索。每个条目都有分类与标签，由 AI Agent 维护，来源可查。
+      </p>
+
+      <form class="search" role="search" onsubmit="return false">
+        <span class="search__icon" aria-hidden="true">🔍</span>
+        <input
+          id="q"
+          type="search"
+          placeholder="搜索工具名、标签或用途，例如「压缩」"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="搜索工具"
+        />
+        <kbd class="kbd" aria-hidden="true">/</kbd>
+      </form>
+
+      <div class="hero__tags">
+        {
+          topTags.map((t) => (
+            <button type="button" class="tagpill" data-q={t.name}>
+              #{t.name}
+              <span class="tagpill__count">{t.count}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </header>
+
+  <nav class="filters" aria-label="按分类筛选">
+    <div class="shell filters__row">
+      <span class="filters__label">分类</span>
+      <button type="button" class="chipbtn" data-cat="all" aria-pressed="true">
+        全部<span class="chipbtn__count">{tools.length}</span>
+      </button>
+      {
+        categoryCounts.map((c) => (
+          <button type="button" class="chipbtn" data-cat={c.id} aria-pressed="false">
+            {c.name}
+            <span class="chipbtn__count">{c.count}</span>
+          </button>
+        ))
+      }
+    </div>
+  </nav>
+
+  <main class="shell">
+    <div class="resultbar">
+      <p class="resultbar__count" aria-live="polite">
+        找到 <strong id="result-num">{tools.length}</strong> 个工具
+      </p>
+      <button type="button" class="resultbar__clear" id="clear" hidden>清空筛选</button>
+    </div>
+
+    <ul class="grid" id="grid">
+      {
+        tools.map((t) => (
+          <li class="grid__item" data-cat={t.category} data-s={searchBlob(t)}>
+            <Card tool={t} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="empty" id="empty" hidden>
+      <span class="empty__emoji" aria-hidden="true">🏝</span>
+      <h2>这座岛上还没有这个工具</h2>
+      <p>换个关键词，或者清空筛选看看全部 {tools.length} 个条目。</p>
+      <p>
+        <button type="button" class="btn" id="clear-empty">清空筛选</button>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <span>工具岛 · 内容由 AI Agent 维护，PR 可审</span>
+      <span>共 {tools.length} 条 · 最近更新 2026-11</span>
+    </div>
+  </footer>
+
+  <script>
+    const input = document.getElementById('q') as HTMLInputElement | null;
+    const grid = document.getElementById('grid');
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.grid__item'));
+    const resultNum = document.getElementById('result-num');
+    const empty = document.getElementById('empty');
+    const clearBtn = document.getElementById('clear');
+    const clearEmpty = document.getElementById('clear-empty');
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chipbtn[data-cat]'));
+    const tagpills = Array.from(document.querySelectorAll<HTMLButtonElement>('.tagpill'));
+
+    if (input && grid) {
+      let activeCat = 'all';
+
+      const apply = (syncUrl = true) => {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+
+        for (const el of items) {
+          const okCat = activeCat === 'all' || el.dataset.cat === activeCat;
+          const blob = el.dataset.s ?? '';
+          const okQ = q === '' || blob.includes(q);
+          const visible = okCat && okQ;
+          el.hidden = !visible;
+          if (visible) shown++;
+        }
+
+        if (resultNum) resultNum.textContent = String(shown);
+        if (empty) empty.hidden = shown !== 0;
+        if (grid) grid.hidden = shown === 0;
+
+        const dirty = q !== '' || activeCat !== 'all';
+        if (clearBtn) clearBtn.hidden = !dirty;
+
+        if (syncUrl) {
+          const params = new URLSearchParams();
+          if (q) params.set('q', input.value.trim());
+          if (activeCat !== 'all') params.set('cat', activeCat);
+          const qs = params.toString();
+          history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+        }
+      };
+
+      const setCategory = (cat: string) => {
+        activeCat = cat;
+        for (const chip of chips) {
+          chip.setAttribute('aria-pressed', String(chip.dataset.cat === cat));
+        }
+        apply();
+      };
+
+      const clear = () => {
+        input.value = '';
+        setCategory('all');
+        input.focus();
+      };
+
+      input.addEventListener('input', () => apply());
+
+      for (const chip of chips) {
+        chip.addEventListener('click', () => setCategory(chip.dataset.cat ?? 'all'));
+      }
+
+      for (const pill of tagpills) {
+        pill.addEventListener('click', () => {
+          input.value = pill.dataset.q ?? '';
+          apply();
+          input.focus();
+        });
+      }
+
+      clearBtn?.addEventListener('click', clear);
+      clearEmpty?.addEventListener('click', clear);
+
+      document.addEventListener('keydown', (e) => {
+        const target = e.target as HTMLElement;
+        const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName);
+        if (e.key === '/' && !typing) {
+          e.preventDefault();
+          input.focus();
+        }
+        if (e.key === 'Escape' && document.activeElement === input && input.value) {
+          input.value = '';
+          apply();
+        }
+      });
+
+      // 首次进入：还原 URL 状态
+      const params = new URLSearchParams(location.search);
+      const q0 = params.get('q');
+      if (q0) input.value = q0;
+      const cat0 = params.get('cat');
+      if (cat0) {
+        activeCat = cat0;
+        for (const chip of chips) {
+          chip.setAttribute('aria-pressed', String(chip.dataset.cat === cat0));
+        }
+      }
+      apply(false);
+    }
+  </script>
+</Base>

@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.*
+!.env.example
+
+# 剪藏原始素材：Agent 的本地输入工作区，不是站点资产
+raw/
+# GitHub API 抓取缓存
+data/.cache/
+
+# 系统
+.DS_Store
+Thumbs.db

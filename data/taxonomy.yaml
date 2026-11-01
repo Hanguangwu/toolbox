@@ -1,0 +1,223 @@
+# 分类与标签的唯一词表。
+# 规则：
+#   - categories 是封闭枚举，新增需人工批准（且该分类下已积累 >= 30 条）
+#   - tags 是半封闭词表：Agent 只能使用 canonical id；写别名会被 validate 拒绝并提示 canonical
+#   - 单条目最多 5 个标签；单标签条目数 >= 3 才会生成标签页
+
+categories:
+  - id: ai
+    name: 人工智能
+    hint: 模型、推理、Agent 与应用
+  - id: dev
+    name: 开发
+    hint: 编程、构建、调试与协作
+  - id: design
+    name: 设计
+    hint: 排版、图形与视觉资产
+  - id: media
+    name: 音视频图像
+    hint: 图片、视频、音频的处理与创作
+  - id: security
+    name: 安全
+    hint: 编解码、加解密与取证
+  - id: data
+    name: 数据
+    hint: 数据库、分析与可视化
+  - id: productivity
+    name: 效率
+    hint: 笔记、文件与日常流程
+  - id: writing
+    name: 写作
+    hint: 文档、翻译与文字加工
+  - id: learning
+    name: 学习
+    hint: 教程、课程与知识库
+  - id: system
+    name: 系统
+    hint: 操作系统层面的工具与管理
+  - id: web
+    name: 网络
+    hint: 建站、协议与网络诊断
+  - id: life
+    name: 生活
+    hint: 游戏、健康与其他日常用途
+
+tags:
+  - id: encoding
+    name: 编码
+    aliases: [encode, 编解码]
+  - id: crypto
+    name: 加密
+    aliases: [encryption, 加解密]
+  - id: offline
+    name: 离线
+    aliases: [offline-first, 本地运行]
+  - id: ctf
+    name: CTF
+  - id: image-compression
+    name: 图片压缩
+    aliases: [image-compress, 压缩图片]
+  - id: gif
+    name: GIF
+  - id: batch
+    name: 批量
+    aliases: [bulk, 批处理]
+  - id: privacy
+    name: 隐私
+    aliases: [privacy-first, 数据不外传]
+  - id: file-manager
+    name: 文件管理
+    aliases: [filemanager]
+  - id: desktop
+    name: 桌面端
+    aliases: [desktop-app]
+  - id: open-source
+    name: 开源
+    aliases: [opensource, oss]
+  - id: static-site
+    name: 静态站点
+    aliases: [ssg, static-site-generator]
+  - id: markdown
+    name: Markdown
+  - id: knowledge-base
+    name: 知识库
+    aliases: [knowledgebase, 笔记库]
+  - id: search
+    name: 搜索
+    aliases: [full-text-search, 全文检索]
+  - id: self-hosted
+    name: 自托管
+    aliases: [selfhosted, 私有部署]
+  - id: games
+    name: 游戏
+    aliases: [game, 游戏库]
+  - id: docker
+    name: Docker
+  - id: video-editing
+    name: 视频剪辑
+    aliases: [video-edit, 剪辑]
+  - id: scriptable
+    name: 可脚本化
+    aliases: [scripting, api-driven]
+  - id: ios
+    name: iOS
+  - id: swift
+    name: Swift
+  - id: cross-platform
+    name: 跨平台
+    aliases: [crossplatform]
+  - id: cli
+    name: 命令行
+    aliases: [command-line, terminal-app]
+  - id: terminal
+    name: 终端
+  - id: sdk
+    name: SDK
+  - id: rust
+    name: Rust
+  - id: documentation
+    name: 文档
+    aliases: [docs, 文档生成]
+  - id: ai-agent
+    name: AI Agent
+    aliases: [agent, 智能体]
+  - id: codex
+    name: Codex
+  - id: usage-monitor
+    name: 用量监控
+    aliases: [quota, 额度]
+  - id: enhancement
+    name: 增强
+    aliases: [mod, 插件增强]
+  - id: android
+    name: Android
+  - id: automation
+    name: 自动化
+    aliases: [auto, 定时任务]
+  - id: chatbot
+    name: 聊天机器人
+    aliases: [chat, 对话]
+  - id: galgame
+    name: Galgame
+    aliases: [visual-novel, 文字冒险]
+  - id: desktop-pet
+    name: 桌宠
+  - id: ai-video
+    name: AI 视频
+    aliases: [ai-video-generation, 漫剧]
+  - id: storytelling
+    name: 叙事
+    aliases: [storyboard, 分镜]
+  - id: skill
+    name: 技能包
+    aliases: [agent-skill, prompt-pack]
+  - id: note-taking
+    name: 笔记
+    aliases: [notes, 第二大脑]
+  - id: local-llm
+    name: 本地模型
+    aliases: [local-llm, ollama]
+  - id: invoice
+    name: 发票
+    aliases: [receipt, 报销]
+  - id: ocr
+    name: OCR
+    aliases: [text-recognition, 文字识别]
+  - id: excel
+    name: Excel
+    aliases: [spreadsheet, 表格]
+  - id: obsidian
+    name: Obsidian
+  - id: plugin
+    name: 插件
+    aliases: [extension, addon]
+  - id: file-management
+    name: 文件组织
+    aliases: [attachment, 附件管理]
+  - id: window-management
+    name: 窗口管理
+    aliases: [always-on-top, 悬浮窗]
+  - id: font
+    name: 字体
+  - id: typography
+    name: 排版
+  - id: image-recognition
+    name: 图像识别
+    aliases: [image-recognition, 以图搜图]
+  - id: resume
+    name: 简历
+    aliases: [cv, 求职]
+  - id: career
+    name: 职业
+  - id: llm-inference
+    name: 推理引擎
+    aliases: [inference, 模型推理]
+  - id: optimization
+    name: 性能优化
+    aliases: [performance, 加速]
+  - id: wiki
+    name: Wiki
+  - id: api
+    name: API
+  - id: json
+    name: JSON
+  - id: image
+    name: 图片
+  - id: video
+    name: 视频
+  - id: audio
+    name: 音频
+  - id: translation
+    name: 翻译
+  - id: password
+    name: 密码
+  - id: database
+    name: 数据库
+  - id: git
+    name: Git
+  - id: editor
+    name: 编辑器
+  - id: browser-extension
+    name: 浏览器扩展
+  - id: no-signup
+    name: 免注册

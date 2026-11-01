@@ -1,0 +1,13 @@
+id: lingchat
+name: LingChat
+description: "沉浸式 AI Galgame 聊天软件，提供情绪表情、桌面宠物、日程与剧情模块。"
+url: https://github.com/SlimeBoyOwO/LingChat
+category: ai
+tags: [chatbot, galgame, desktop-pet]
+aliases: [ling chat]
+open_source: true
+status: published
+repo: SlimeBoyOwO/LingChat
+source: https://github.com/SlimeBoyOwO/LingChat
+added_at: 2026-11-01
+updated_at: 2026-11-01

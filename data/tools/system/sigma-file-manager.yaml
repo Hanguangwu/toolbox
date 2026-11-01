@@ -1,0 +1,15 @@
+id: sigma-file-manager
+name: Sigma File Manager
+description: "面向 Windows 与 Linux 的开源文件管理器，提供现代界面与多标签浏览，可替代系统自带资源管理器。"
+url: https://github.com/aleksey-hoffman/sigma-file-manager
+category: system
+tags: [file-manager, desktop, open-source]
+aliases: [sigma]
+platforms: [windows, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: aleksey-hoffman/sigma-file-manager
+source: https://github.com/aleksey-hoffman/sigma-file-manager
+added_at: 2026-11-01
+updated_at: 2026-11-01

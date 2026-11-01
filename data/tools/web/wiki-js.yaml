@@ -1,0 +1,15 @@
+id: wiki-js
+name: Wiki.js
+description: "基于 Node.js 的自托管 Wiki 引擎，支持 Markdown、权限控制与多语言，适合团队建知识库。"
+url: https://github.com/requarks/wiki
+category: web
+tags: [wiki, self-hosted, markdown, knowledge-base]
+aliases: [wikijs, wiki.js]
+platforms: [docker]
+open_source: true
+pricing: open-source
+status: published
+repo: requarks/wiki
+source: https://github.com/requarks/wiki
+added_at: 2026-11-01
+updated_at: 2026-11-01

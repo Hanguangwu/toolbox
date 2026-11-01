@@ -1,0 +1,13 @@
+id: crystal-vault-float
+name: Crystal Vault Float
+description: "Crystal Vault 的配套工具，把阅读器与结构窗口浮在其他应用之上，方便边写边查。"
+url: https://github.com/runyao-zhang/crystal-vault-float
+category: productivity
+tags: [obsidian, plugin, window-management]
+aliases: [crystal vault]
+open_source: true
+status: published
+repo: runyao-zhang/crystal-vault-float
+source: https://github.com/runyao-zhang/crystal-vault-float
+added_at: 2026-11-01
+updated_at: 2026-11-01

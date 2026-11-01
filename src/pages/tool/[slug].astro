@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import { tools, categoryName, tagName, hueOf, initialOf } from '../../lib/tools';
+import type { Tool } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { slug: tool.id }, props: { tool } }));
+}
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const hue = hueOf(tool.name);
+
+const platformLabels: Record<string, string> = {
+  web: 'Web',
+  windows: 'Windows',
+  macos: 'macOS',
+  linux: 'Linux',
+  android: 'Android',
+  ios: 'iOS',
+  cli: 'CLI',
+  docker: 'Docker',
+};
+
+const pricingLabels: Record<string, string> = {
+  free: '免费',
+  freemium: '免费增值',
+  paid: '付费',
+  'open-source': '开源',
+};
+---
+
+<Base title={tool.name} description={tool.description}>
+  <main class="shell detail">
+    <a class="detail__back" href="/">← 返回工具岛</a>
+
+    <div class="detail__head">
+      {
+        tool.logo ? (
+          <img
+            class="detail__logo"
+            src={tool.logo}
+            alt=""
+            width="64"
+            height="64"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span class="detail__badge" aria-hidden="true" style={`--h:${hue}`}>
+            {initialOf(tool.name)}
+          </span>
+        )
+      }
+      <div>
+        <h1>{tool.name}</h1>
+        <div class="card__meta" style="margin-top:8px">
+          <span class="chip chip--category">{categoryName(tool.category)}</span>
+          {tool.tags.map((tag) => <span class="chip">#{tagName(tag)}</span>)}
+        </div>
+      </div>
+    </div>
+
+    <p class="detail__desc">{tool.description}</p>
+
+    <div class="detail__actions">
+      <a class="btn btn--primary" href={tool.url} target="_blank" rel="noopener noreferrer">
+        访问官网 ↗
+      </a>
+      {tool.repo && (
+        <a
+          class="btn"
+          href={`https://github.com/${tool.repo}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub 仓库
+        </a>
+      )}
+      {tool.source && tool.source !== tool.url && (
+        <a class="btn" href={tool.source} target="_blank" rel="noopener noreferrer">
+          事实来源
+        </a>
+      )}
+    </div>
+
+    <dl>
+      {tool.platforms?.length && (
+        <>
+          <dt>平台</dt>
+          <dd>{tool.platforms.map((p) => platformLabels[p] ?? p).join(' · ')}</dd>
+        </>
+      )}
+      {tool.pricing && (
+        <>
+          <dt>价格</dt>
+          <dd>{pricingLabels[tool.pricing] ?? tool.pricing}</dd>
+        </>
+      )}
+      {tool.open_source && (
+        <>
+          <dt>开源</dt>
+          <dd>是</dd>
+        </>
+      )}
+      {tool.aliases?.length && (
+        <>
+          <dt>别名</dt>
+          <dd>{tool.aliases.join(' · ')}</dd>
+        </>
+      )}
+      <dt>官网</dt>
+      <dd>
+        <a href={tool.url} target="_blank" rel="noopener noreferrer">{tool.url}</a>
+      </dd>
+      {tool.repo && (
+        <>
+          <dt>仓库</dt>
+          <dd><code>{tool.repo}</code></dd>
+        </>
+      )}
+      <dt>收录时间</dt>
+      <dd>{tool.added_at}（更新于 {tool.updated_at}）</dd>
+    </dl>
+  </main>
+</Base>
