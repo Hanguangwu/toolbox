@@ -1,6 +1,7 @@
 id: openwiki
 name: OpenWiki
 description: "为代码库自动生成并持续维护 Agent 文档的命令行工具，让 AI 协作时有稳定的项目上下文。"
+how: "Node.js CLI（Node 22+），基于 LangChain Deep Agents 扫描代码库并生成结构化 Markdown Wiki，每条事实带 Claims 溯源（openwiki/.claims/），增量更新过时 Claims，CI 自动 PR。"
 url: https://github.com/langchain-ai/openwiki
 category: dev
 tags: [documentation, cli, ai-agent]

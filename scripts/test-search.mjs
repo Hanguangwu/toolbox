@@ -133,6 +133,20 @@ check('无相关关键词时返回空', () => {
   eq(ids(empty({ q: 'qqzzxx-vvbbnn' })).length, 0);
 });
 
+check('实现方式（how）字段可召回', () => {
+  // "Marlin 算子" 只出现在 ktransformers 的 how 字段
+  const list = ids(empty({ q: 'Marlin' }));
+  ok(has(list, 'ktransformers'), 'how 字段未被检索');
+  // "WebDAV" 只出现在 tgfs 的 how 字段
+  const wd = ids(empty({ q: 'WebDAV' }));
+  ok(has(wd, 'tgfs'), 'how 字段未被检索（WebDAV）');
+});
+
+check('how 字段进入索引文档', () => {
+  const d = docs.find((x) => x.id === 'colibri');
+  ok(typeof d.how === 'string' && d.how.length > 0, 'colibri 缺少 how');
+});
+
 /* ---------- 分面 ---------- */
 
 console.log('\n分面');

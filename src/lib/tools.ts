@@ -17,6 +17,7 @@ export interface Tool {
   id: string;
   name: string;
   description: string;
+  how?: string;
   url: string;
   logo?: string;
   logo_source?: string;
@@ -121,6 +122,7 @@ export function searchBlob(t: Tool): string {
     ...t.tags,
     ...t.tags.map(tagName),
     t.description,
+    t.how,
   ]
     .join(' ')
     .toLowerCase();

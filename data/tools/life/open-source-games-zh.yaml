@@ -1,0 +1,15 @@
+id: open-source-games-zh
+name: open-source-games-zh
+description: "开源电子游戏与商业游戏开源重制版的中文合集清单，按类型分类并附源码链接，CC0 许可。"
+how: "Markdown 清单仓库，汉译自 bobeff/open-source-games（CC0），按动作、FPS、RTS、Roguelike 等十余类组织，每个条目附官网与 [source] 源码链接。"
+url: https://github.com/bayshier/open-source-games-zh
+category: life
+tags: [games, open-source, documentation]
+aliases: [开源游戏清单中文版, open source games zh]
+open_source: true
+pricing: open-source
+status: published
+repo: bayshier/open-source-games-zh
+source: https://github.com/bayshier/open-source-games-zh
+added_at: 2026-11-24
+updated_at: 2026-11-24

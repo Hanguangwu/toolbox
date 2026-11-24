@@ -1,6 +1,7 @@
 id: dsh-android
 name: DSH-Android
 description: "在安卓手机上以单个 APK 运行 DeepSeek Harness，无需 ROOT 与 Termux，并支持读屏操作与定时自动化。"
+how: "Kotlin/Compose 主进程 + 前台 :engine 服务，Node 24 编译成 libnode.so 经 JNI 启动 dsh，App 侧设备工具走私有 socket JSON-RPC 能力桥；无障碍服务读屏点按，Shizuku 可选。"
 url: https://github.com/jackwener/DSH-Android
 category: system
 tags: [android, automation, ai-agent]

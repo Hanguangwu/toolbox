@@ -1,0 +1,16 @@
+id: tgfs
+name: TGFS
+description: "把 Telegram 私有频道接成 WebDAV 文件系统的 Python 工具，支持分片传输、版本管理与视频流式播放。"
+how: "Python 服务端把 Telegram 私有频道映射为 WebDAV，rclone/Cyberduck/WinSCP 可挂载；大文件分片传输、版本管理、Telegram Mini App 导入与视频流式播放，Docker 部署。"
+url: https://github.com/TheodoreKrypton/tgfs
+category: system
+tags: [self-hosted, file-management, docker]
+aliases: [tg fs]
+platforms: [docker, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: TheodoreKrypton/tgfs
+source: https://www.appmiu.com/45602.html
+added_at: 2026-11-24
+updated_at: 2026-11-24

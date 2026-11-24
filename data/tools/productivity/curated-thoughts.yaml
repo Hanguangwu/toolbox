@@ -1,6 +1,7 @@
 id: curated-thoughts
 name: Curated Thoughts
 description: "基于 Tauri 与本地 Ollama 的私人第二大脑桌面应用，笔记与模型推理都留在本机。"
+how: "Tauri 2.x + React + Rust 桌面应用，接本地 Ollama 模型推理，笔记与推理全程本机不出网，隐私优先的私人第二大脑。"
 url: https://github.com/equationalapplications/curated-thoughts
 category: productivity
 tags: [note-taking, local-llm, privacy]

@@ -1,6 +1,7 @@
 id: concat
 name: Concat
 description: "本地运行的跨平台视频剪辑器，无需账号与上传，可通过 JSON-RPC 接口用脚本驱动剪辑流程。"
+how: "本地运行的 CapCut 替代，跨平台无账号不上传；FFmpeg 底层剪辑，通过 JSON-RPC API 脚本化流程（MCP 计划中），开源免费。"
 url: https://github.com/jub0t/Concat
 category: media
 tags: [video-editing, offline, scriptable]

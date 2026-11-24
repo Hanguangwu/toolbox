@@ -1,6 +1,7 @@
 id: quartz
 name: Quartz
 description: "把 Markdown 笔记目录构建成带全文搜索与关系图的静态网站，适合发布 Obsidian 式知识库。"
+how: "Astro 静态站点生成器，扫描 Markdown 目录生成带全文搜索、概念图谱与主题的网站，适合发布 digital garden / Obsidian 知识库。"
 url: https://github.com/jackyzha0/quartz
 category: web
 tags: [static-site, markdown, knowledge-base, search]

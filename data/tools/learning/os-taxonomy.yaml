@@ -1,0 +1,15 @@
+id: os-taxonomy
+name: os-taxonomy
+description: "小学课程微主题开放数据集，1858 个主题与 3994 条先修关系图，对齐多国课程标准，纯 JSON 无运行时。"
+how: "纯数据仓库：topics.json（节点）+ dependencies.json（先修 DAG 边）+ curriculum-standards.json（对齐 NGSS/Common Core/UK NC 等）+ clusters.json，UTF-8 JSON 无运行时，ODbL + CC BY-SA 4.0。"
+url: https://github.com/withmarbleapp/os-taxonomy
+category: learning
+tags: [knowledge-base, open-source]
+aliases: [marble skill taxonomy]
+open_source: true
+pricing: open-source
+status: published
+repo: withmarbleapp/os-taxonomy
+source: https://github.com/withmarbleapp/os-taxonomy
+added_at: 2026-11-24
+updated_at: 2026-11-24

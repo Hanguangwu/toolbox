@@ -1,0 +1,16 @@
+id: anki-studio
+name: Anki Studio
+description: "Anki 插件，重构桌面 UI 为沉浸式工作区，提供 FSRS 分析、休假模式与逾期卡片分摊，免游戏化。"
+how: "100% 走 Anki 原生 Python API（col.update_card/col.sched），不动 FSRS 数据与 AnkiWeb 同步；复习时隐藏侧栏，自定义模板在隔离沙盒帧内运行，支持 Image Occlusion 只读渲染。"
+url: https://ankiweb.net/shared/info/1071937836
+category: learning
+tags: [plugin, note-taking]
+aliases: [anki studio]
+platforms: [windows, macos, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: gripet43/anki-studio
+source: https://ankiweb.net/shared/info/1071937836
+added_at: 2026-11-24
+updated_at: 2026-11-24

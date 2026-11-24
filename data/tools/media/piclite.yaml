@@ -1,6 +1,7 @@
 id: piclite
 name: PicLite 图轻
 description: "本地批量压缩图片与 GIF 的桌面工作台，支持格式转换、水印与目标体积控制，文件不上传服务器。"
+how: "Web（浏览器本机处理）+ Tauri 2 桌面端（Rust）双形态，智能择优测 JPEG/WebP/PNG 体积；剪贴板/全局快捷键/目录监测自动化，内置 MCP stdio 服务供智能体调用，GPL-3.0。"
 url: https://amiaoapp.github.io/PicLite/
 category: media
 tags: [image-compression, gif, batch, privacy]

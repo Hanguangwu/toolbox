@@ -1,0 +1,16 @@
+id: rakazo
+name: Rakazo
+description: "自托管的 AI 队友，长期在线的记忆、例行任务与应用沙箱，可接任意模型与 MCP，替代 Grok Bot。"
+how: "TypeScript/React + PostgreSQL/Prisma + Better Auth，Docker/E2B/Daytona/CreateOS 沙箱运行机器人，Node.js 24 构建；MCP/OpenAPI 接数千应用，网页/桌面/移动端共用一套 API。"
+url: https://github.com/elie222/rakazo
+category: ai
+tags: [ai-agent, self-hosted, local-llm]
+aliases: [raka zo]
+platforms: [web, windows, macos, linux, android, ios, docker]
+open_source: true
+pricing: open-source
+status: published
+repo: elie222/rakazo
+source: https://github.com/elie222/rakazo/blob/main/README.zh-CN.md
+added_at: 2026-11-24
+updated_at: 2026-11-24

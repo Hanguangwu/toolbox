@@ -1,0 +1,16 @@
+id: opensearch
+name: OpenSearch
+description: "Linux 基金会托管的开源搜索与分析平台，Elasticsearch 7.10 分支演进，Apache 2.0 全栈免费。"
+how: "基于 Apache Lucene 倒排索引，Java 21 实现；3.0 引入段复制、读写分离分片角色与原生 gRPC，向量索引用 Faiss/NMSLIB/Lucene 三引擎并支持 GPU 加速。"
+url: https://opensearch.org
+category: data
+tags: [search, self-hosted, database]
+aliases: [open search]
+platforms: [docker, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: opensearch-project/opensearch
+source: https://juejin.cn/post/7680375814231605299
+added_at: 2026-11-24
+updated_at: 2026-11-24

@@ -1,0 +1,15 @@
+id: publish-or-perish
+name: Publish or Perish
+description: "文献检索软件，聚合 Google Scholar 等多数据库，展示引用数与 h 因子，导出 BibTeX/RIS/CSV。"
+how: "桌面应用（<10MB）聚合 Google Scholar、PubMed、Scopus、Web of Science 等数据库结果，本地计算引用数与 h 因子，支持布尔运算与通配符，导出 CSV/BibTeX/RIS。"
+url: https://www.harzing.com/pop
+category: learning
+tags: [search, knowledge-base]
+aliases: [pop, 不出版就淘汰]
+platforms: [windows, macos, linux]
+open_source: false
+pricing: free
+status: published
+source: https://sspai.com/post/76766
+added_at: 2026-11-24
+updated_at: 2026-11-24

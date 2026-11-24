@@ -1,0 +1,16 @@
+id: shotsync
+name: shotsync
+description: "跨设备图片与文字中转池，几分钟部署到 Cloudflare 免费档，PWA 免装 App，数据只在自己账户里。"
+how: "Cloudflare Worker + R2 存储桶 + 网页 PWA 相册；浏览器端 HEIC→JPEG 与缩略图，单 token 门禁，分享链接 HMAC-SHA256 签名 7 天，R2 lifecycle 30 天自动清理。"
+url: https://github.com/Defiabell/shotsync
+category: productivity
+tags: [self-hosted, file-management, privacy]
+aliases: [shot sync]
+platforms: [web, docker]
+open_source: true
+pricing: open-source
+status: published
+repo: Defiabell/shotsync
+source: https://github.com/Defiabell/shotsync/blob/main/README.zh-CN.md
+added_at: 2026-11-24
+updated_at: 2026-11-24

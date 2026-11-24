@@ -1,0 +1,16 @@
+id: geph
+name: 迷雾通 Geph
+description: "抗运营商级审查的 VPN 服务，盲签名认证让被攻破的服务器也无法关联用户身份与浏览活动。"
+how: "双跳架构：用户经不同桥接（bridge）中转到出口节点，协议为不同用户分配并轮换桥接，GFW 无法枚举；盲签名验证使服务器即使被攻破也无法把活动与身份关联。"
+url: https://geph.io/zhs
+category: security
+tags: [privacy, offline]
+aliases: [迷雾通, geph]
+platforms: [windows, macos, linux, android, ios]
+open_source: true
+pricing: open-source
+status: published
+repo: geph-official/geph5
+source: https://geph.io/zhs
+added_at: 2026-11-24
+updated_at: 2026-11-24

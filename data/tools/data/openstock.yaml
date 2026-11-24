@@ -1,0 +1,16 @@
+id: openstock
+name: OpenStock
+description: "开源股票市场追踪应用，实时行情、自选提醒与公司分析，基于 Next.js，AGPL 协议。"
+how: "Next.js 15 + React 19 + Tailwind v4 + shadcn/ui，Better Auth + MongoDB 存自选，Finnhub 取行情、TradingView 嵌入图表，Inngest 定时任务用 Gemini 生成个性化邮件。"
+url: https://github.com/Open-Dev-Society/OpenStock
+category: data
+tags: [self-hosted, open-source, database]
+aliases: [open stock]
+platforms: [docker, web]
+open_source: true
+pricing: open-source
+status: published
+repo: Open-Dev-Society/OpenStock
+source: https://aibars.net/zh/projects/775669184469274624
+added_at: 2026-11-24
+updated_at: 2026-11-24

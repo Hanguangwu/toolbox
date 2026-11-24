@@ -592,6 +592,27 @@ img {
   color: var(--ac-ink-soft);
   max-width: 62ch;
 }
+.detail__how {
+  margin: var(--sp-3) 0;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--ac-radius);
+  background: var(--ac-card);
+  border: 1px solid rgba(74, 64, 52, 0.1);
+  max-width: 62ch;
+}
+.detail__how-label {
+  display: inline-block;
+  margin-bottom: var(--sp-1);
+  font: 600 var(--fs-xs) / 1 var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--ac-accent);
+}
+.detail__how p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--ac-ink-soft);
+  line-height: 1.6;
+}
 .detail__actions {
   display: flex;
   flex-wrap: wrap;

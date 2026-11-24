@@ -1,6 +1,7 @@
 id: codex-cockpit
 name: Codex Cockpit
 description: "在 Mac 与 Windows 上查看 Codex 的额度、用量与估算成本，避免长任务中途额度耗尽。"
+how: "Mac/Windows 桌面悬浮小窗，读本机 Codex 用量做额度、日历热力图与小票 PNG 估算，可选 Cloudflare 团队同步（非公共 SaaS），基于 Quota Float（MIT）。"
 url: https://github.com/HouSiyuan2001/codex-cockpit
 category: dev
 tags: [codex, usage-monitor, desktop]

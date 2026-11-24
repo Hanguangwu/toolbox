@@ -1,0 +1,16 @@
+id: ayakaleaf-pro
+name: AyakaLeaf Pro
+description: "自托管的 Overleaf Pro 替代方案，在线 LaTeX 编辑器带 AI 助手、MCP 服务器与 Git 集成，Docker 部署。"
+how: "Docker 容器编译 LaTeX（每项目隔离沙盒），Overleaf Toolkit 初始化；提供 TeXLive 实时镜像，内置 AI 聊天/错误助手与 MCP 服务器接 Claude Code/Codex，Git/GitLab/Zotero 集成。"
+url: https://github.com/ayaka-notes/ayakaleaf
+category: writing
+tags: [self-hosted, editor, markdown, ai-agent]
+aliases: [ayakaleaf]
+platforms: [docker, web]
+open_source: true
+pricing: open-source
+status: published
+repo: ayaka-notes/ayakaleaf
+source: https://ayakaleaf-pro.ayaka.space/home/zh-cn
+added_at: 2026-11-24
+updated_at: 2026-11-24

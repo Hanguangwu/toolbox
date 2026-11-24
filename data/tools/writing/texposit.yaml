@@ -1,0 +1,15 @@
+id: texposit
+name: TeXposit
+description: "在欧盟托管的在线 LaTeX 与 Markdown 协作编辑器，多人实时编辑、arXiv 一键插入 BibTeX，可本地 Ollama 推理。"
+how: "欧盟托管的 Web 协作编辑器，支持纯 LaTeX/纯 Markdown/.tex.md 混合与 WYSIWYG，arXiv 一键插 BibTeX；内置 AI 助手可接本地 Ollama 推理，数据 GDPR 合规，可 Docker 自托管。"
+url: https://aiproducthub.cn/launch/p/50650.html
+category: writing
+tags: [editor, self-hosted, markdown, ai-agent]
+aliases: [tex posite]
+platforms: [web, docker]
+open_source: false
+pricing: free
+status: published
+source: https://aiproducthub.cn/launch/p/50650.html
+added_at: 2026-11-24
+updated_at: 2026-11-24

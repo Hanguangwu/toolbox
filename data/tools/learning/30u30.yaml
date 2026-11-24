@@ -1,0 +1,15 @@
+id: 30u30
+name: 30u30
+description: "30 篇 AI 基础论文的学习路线，每篇附从零实现、交互练习与可视化，覆盖 RNN 到 RLHF。"
+how: "开源学习指南仓库：每篇论文一个目录，含从零 NumPy/PyTorch 实现、Jupyter 交互 notebook、5 个渐进练习与解答、可视化，按 30 天一天一篇组织，CC BY-NC-ND 4.0。"
+url: https://github.com/Ojhaharsh/30u30
+category: learning
+tags: [knowledge-base, open-source]
+aliases: [thirty papers]
+open_source: true
+pricing: open-source
+status: published
+repo: Ojhaharsh/30u30
+source: https://github.com/Ojhaharsh/30u30
+added_at: 2026-11-24
+updated_at: 2026-11-24

@@ -1,0 +1,16 @@
+id: edgechat
+name: EdgeChat
+description: "部署在 Cloudflare 上的开源团队聊天系统，邀请制管理成员，用 Serverless 全家桶免运维。"
+how: "Cloudflare Worker + D1（消息）+ KV/R2（资源），GitHub Actions 自动建资源并迁移；邀请制无公开注册，前端 React，消息走 Worker 实时推送。"
+url: https://github.com/aozorae/Edgechat
+category: web
+tags: [self-hosted, chatbot, no-signup]
+aliases: [edge chat]
+platforms: [web]
+open_source: true
+pricing: open-source
+status: published
+repo: azorae/Edgechat
+source: https://www.cunzhangblog.com/edgechat
+added_at: 2026-11-24
+updated_at: 2026-11-24

@@ -1,0 +1,16 @@
+id: droiddesk
+name: DroidDesk
+description: "免 Root 一行命令把安卓设备装成带 GUI 的 Linux 工作站，用 Termux+Proot 与 GPU 加速跑桌面与本地模型。"
+how: "Shell 脚本整合 Termux + Proot 用户态隔离，借安卓 Linux 内核跑 XFCE/KDE；高通开 Turnip、其他芯片开 Zink 驱动做 GPU 硬件加速，USB-C DP 输出外接显示器。"
+url: https://github.com/orailnoor/DroidDesk
+category: system
+tags: [android, offline, desktop]
+aliases: [droid desk]
+platforms: [android]
+open_source: true
+pricing: open-source
+status: published
+repo: orailnoor/DroidDesk
+source: https://yourwayai.github.io/tools/wx_20260530171455.html
+added_at: 2026-11-24
+updated_at: 2026-11-24

@@ -1,0 +1,15 @@
+id: genie-3
+name: Genie 3
+description: "DeepMind 的世界模型，用文字提示生成可交互、可探索的 3D 环境，以 720p/24FPS 实时运行。"
+how: "DeepMind 的世界模型架构，把文字提示编译成可导航的 3D 环境，物理模拟（水、碰撞、地形变形）以 720p/24FPS 实时生成，无需 3D 技能。"
+url: https://deepmind.google/discover/genie/
+category: ai
+tags: [ai-video, offline]
+aliases: [genie, genieworld]
+platforms: [web]
+open_source: false
+pricing: free
+status: published
+source: https://genieworld.org/zh
+added_at: 2026-11-24
+updated_at: 2026-11-24

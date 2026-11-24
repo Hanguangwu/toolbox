@@ -1,6 +1,7 @@
 id: cyberchef
 name: CyberChef
 description: "在浏览器本地完成编码解码、加解密与数据分析的拖拽式工作台，操作可串成配方链复用，数据不出本机。"
+how: "纯浏览器运行的拖拽式工作台，Recipe 把多步操作串成可复用链，所有计算在本地 WebAssembly/JS 完成；支持 CTF、编码解码、加解密与数据分析，数据不出本机。"
 url: https://gchq.github.io/CyberChef/
 category: security
 tags: [encoding, crypto, offline, ctf]

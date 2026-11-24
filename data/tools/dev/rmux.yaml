@@ -1,6 +1,7 @@
 id: rmux
 name: rmux
 description: "Rust 编写的通用终端复用器，提供带类型的 SDK，可用代码驱动任意 CLI 或 TUI 程序。"
+how: "Rust 异步引擎实现 90+ tmux 命令，本地 daemon 持有 shell/pane/scrollback，Rust/Python/TypeScript 类型化 SDK 经 IPC 驱动；Web Share 走混合后量子 E2E 加密 WebSocket。"
 url: https://github.com/Helvesec/rmux
 category: dev
 tags: [cli, terminal, sdk, rust]

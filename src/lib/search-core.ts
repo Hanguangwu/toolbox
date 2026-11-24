@@ -9,6 +9,7 @@ export interface SearchDoc {
   id: string;
   name: string;
   description: string;
+  how: string;
   category: string;
   categoryName: string;
   tags: string[];
@@ -22,6 +23,7 @@ export interface ToolLike {
   id: string;
   name: string;
   description: string;
+  how?: string;
   category: string;
   tags: string[];
   platforms?: string[];
@@ -87,6 +89,7 @@ export function docsFromTools(
     id: t.id,
     name: t.name,
     description: t.description,
+    how: t.how ?? '',
     category: t.category,
     categoryName: categoryName(t.category),
     tags: t.tags,
@@ -98,11 +101,11 @@ export function docsFromTools(
 }
 
 const INDEX_OPTIONS = {
-  fields: ['name', 'aliases', 'tagNames', 'tags', 'description', 'categoryName'],
+  fields: ['name', 'aliases', 'tagNames', 'tags', 'description', 'how', 'categoryName'],
   storeFields: ['id'],
   tokenize,
   searchOptions: {
-    boost: { name: 4, aliases: 3, tagNames: 2, tags: 1.5, description: 0.6, categoryName: 0.4 },
+    boost: { name: 4, aliases: 3, tagNames: 2, tags: 1.5, description: 0.6, how: 0.5, categoryName: 0.4 },
     prefix: true,
     fuzzy: false,
     combineWith: 'OR',

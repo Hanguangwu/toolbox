@@ -1,6 +1,7 @@
 id: romm
 name: RomM
 description: "自托管的 ROM 管理与游戏库，自动抓取封面与元数据，并支持在浏览器里启动模拟器直接游玩。"
+how: "Docker 自托管应用，扫描 400+ 平台 ROM，从 IGDB/Screenscraper/MobyGames 等 10+ 元数据源抓取封面；用 EmulatorJS/RuffleRS 在浏览器直接游玩，跨设备同步存档，AGPL-3.0。"
 url: https://github.com/rommapp/romm
 category: life
 tags: [self-hosted, games, docker]

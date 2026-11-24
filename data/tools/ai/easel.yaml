@@ -1,0 +1,16 @@
+id: easel
+name: Easel
+description: "面向小红书、抖音、知乎、B 站等平台的开源 AI 社媒内容工作台，发现、策划、创作、发布与归因闭环。"
+how: "Python CLI + FastAPI/React Web 工作台，接 OpenClaw Agent 与 LLM（Anthropic/OpenAI 兼容），技能配可运行脚本产出 outputs/，Playwright 浏览器登录并发布到 7 个平台，账号画像驱动。"
+url: https://github.com/ZJU-REAL/Easel
+category: ai
+tags: [ai-agent, open-source, automation]
+aliases: [easel 社媒]
+platforms: [windows, macos, linux]
+open_source: true
+pricing: open-source
+status: published
+repo: ZJU-REAL/Easel
+source: https://github.com/ZJU-REAL/Easel
+added_at: 2026-11-24
+updated_at: 2026-11-24

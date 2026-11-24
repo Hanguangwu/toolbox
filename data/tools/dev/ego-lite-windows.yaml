@@ -1,0 +1,16 @@
+id: ego-lite-windows
+name: ego-lite-windows
+description: "把 ego-lite 浏览器自动化运行时移植到 Windows，内置社区 Linux 运行时与 Copilot 技能，免构建免购买。"
+how: "vendored CitroLabs/ego-lite 的社区 Linux 运行时（CDP 驱动本机 Edge/Chrome）+ GitHub Copilot SKILL.md，heredoc JS 驱动真实浏览器；自动探测浏览器并处理 Windows 路径坑位。"
+url: https://github.com/ykscdoe/ego-lite-windows
+category: dev
+tags: [browser-extension, automation, open-source]
+aliases: [ego lite windows]
+platforms: [windows]
+open_source: true
+pricing: open-source
+status: published
+repo: ykscdoe/ego-lite-windows
+source: https://github.com/ykscdoe/ego-lite-windows
+added_at: 2026-11-24
+updated_at: 2026-11-24

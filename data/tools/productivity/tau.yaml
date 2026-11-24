@@ -1,0 +1,15 @@
+id: tau
+name: Tau
+description: "本地优先的个人知识工作台，划线、卡片、文章、闪卡与待办互相引用，免注册可离线，导出 Markdown。"
+how: "本地优先架构：内容存本机（macOS/Windows/Android），划线收集出处、卡片/文章/闪卡/待办互相引用，AI 与同步/发布需联网，Markdown 可直接打开编辑与导出。"
+url: https://taunote.app/docs/
+category: productivity
+tags: [note-taking, offline, no-signup]
+aliases: [taunote]
+platforms: [windows, macos, android]
+open_source: false
+pricing: free
+status: published
+source: https://taunote.app/docs/
+added_at: 2026-11-24
+updated_at: 2026-11-24

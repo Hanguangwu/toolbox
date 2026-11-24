@@ -67,6 +67,13 @@ const pricingLabels: Record<string, string> = {
 
     <p class="detail__desc">{tool.description}</p>
 
+    {tool.how && (
+      <div class="detail__how">
+        <span class="detail__how-label">实现方式</span>
+        <p>{tool.how}</p>
+      </div>
+    )}
+
     <div class="detail__actions">
       <a class="btn btn--primary" href={tool.url} target="_blank" rel="noopener noreferrer">
         访问官网 ↗

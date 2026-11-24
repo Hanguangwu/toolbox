@@ -1,6 +1,7 @@
 id: ktransformers
 name: KTransformers
 description: "开源的大模型推理优化框架，用 CPU/GPU 分层存储与算子优化，在有限显存下运行更大的模型。"
+how: "Python + PyTorch + CUDA，基于计算强度把 MoE 稀疏矩阵 offload 到 CPU/DRAM；CPU 端 llamafile + Intel AMX，GPU 端 Marlin 量化算子与 CUDA Graph，YAML 模板注入切量化策略。"
 url: https://github.com/kvcache-ai/KTransformers
 category: ai
 tags: [llm-inference, optimization, open-source]

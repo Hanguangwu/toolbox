@@ -1,0 +1,16 @@
+id: colibri
+name: Colibrì
+description: "纯 C 零依赖的本地 MoE 推理引擎，用显存/内存/NVMe 分层存储，让消费级电脑运行超大模型。"
+how: "纯 C 流式推理，常驻参数 int4 量化进内存、路由专家放 NVMe 按需加载；用 Router-Lookahead 预取 + LRU/学习缓存减少磁盘 I/O，OpenAI 兼容 HTTP 服务。"
+url: https://github.com/JustVugg/colibri
+category: ai
+tags: [llm-inference, offline, local-llm]
+aliases: [colibri, 蜂鸟]
+platforms: [linux]
+open_source: true
+pricing: open-source
+status: published
+repo: JustVugg/colibri
+source: https://ai-bot.cn/colibri/
+added_at: 2026-11-24
+updated_at: 2026-11-24

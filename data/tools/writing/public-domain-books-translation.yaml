@@ -1,0 +1,15 @@
+id: public-domain-books-translation
+name: public-domain-books-translation
+description: "公版书 AI 翻译工作流仓库，按模板生成并校验中文 EPUB，含分层随机抽检与问题族追杀流程。"
+how: "用 AI 客户端（Codex/Claude Code/OpenCode）驱动模板化翻译流水线：版权核查 → 逐章译后全量检查 → EPUB 构建 → 分层随机抽检与问题族追杀 → release，英译简中默认多产双语对照版。"
+url: https://github.com/SaberOnGo/public-domain-books-translation
+category: writing
+tags: [translation, ai-agent]
+aliases: [公版书翻译, lifebook]
+open_source: true
+pricing: open-source
+status: published
+repo: SaberOnGo/public-domain-books-translation
+source: https://github.com/SaberOnGo/public-domain-books-translation/blob/main/doc/public/how-to-use-prompts.zh-CN.md
+added_at: 2026-11-24
+updated_at: 2026-11-24

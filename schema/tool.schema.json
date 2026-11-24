@@ -34,6 +34,12 @@
       "maxLength": 120,
       "description": "一句话：做什么 + 给谁 + 关键差异。禁止营销词。"
     },
+    "how": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 300,
+      "description": "实现方式：怎么做到的，一句话技术路径（语言/架构/机制/协议）。非必填。"
+    },
     "url": {
       "type": "string",
       "pattern": "^https://",

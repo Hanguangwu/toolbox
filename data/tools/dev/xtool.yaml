@@ -1,6 +1,7 @@
 id: xtool
 name: xtool
 description: "在 Linux 与 Windows 上用 SwiftPM 构建并部署 iOS 应用，替代 Xcode 的跨平台工具链。"
+how: "跨平台 SwiftPM 工具链，在 Linux/Windows 上构建并部署 iOS 应用，绕过 Xcode 依赖，macOS 亦支持，开源。"
 url: https://github.com/xtool-org/xtool
 category: dev
 tags: [ios, swift, cross-platform]

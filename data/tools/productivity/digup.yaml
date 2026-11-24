@@ -1,0 +1,16 @@
+id: digup
+name: DigUp
+description: "本地文件语义搜索工具，用 EmbeddingGemma 2 按内容找照片、合同与截图，一句话定位到页或秒。"
+how: "嵌入谷歌 EmbeddingGemma 2（Apache 2.0，Mac 上跑 Metal/llama.cpp 8bit），文件向量存 SQLite；搜索走语义 + 原词精确匹配双通道，模型独立进程只读文件不上传。"
+url: https://github.com/ARahim3/DigUp
+category: productivity
+tags: [search, image-recognition, offline, privacy]
+aliases: [dig up]
+platforms: [macos]
+open_source: true
+pricing: open-source
+status: published
+repo: ARahim3/DigUp
+source: https://davidyin.dev/writing/282-20261016-digup-embeddinggemma2/
+added_at: 2026-11-24
+updated_at: 2026-11-24

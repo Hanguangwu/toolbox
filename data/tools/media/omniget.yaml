@@ -1,0 +1,15 @@
+id: omniget
+name: OmniGet
+description: "桌面下载器，粘贴链接抓取 1800+ 站点的视频、课程与电子书，内置播放器、阅读器与转码，GPL 开源。"
+how: "桌面应用内置 yt-dlp 与 FFmpeg 并自动更新，覆盖 1800+ 站点；Rust 插件市场扩展课程/种子/Telegram/转码能力，本地播放音乐与 EPUB/PDF 阅读器。"
+url: https://getomniget.com/zh
+category: media
+tags: [batch, offline, video]
+aliases: [omni get]
+platforms: [windows, macos, linux]
+open_source: true
+pricing: open-source
+status: published
+source: https://omniget.cn/
+added_at: 2026-11-24
+updated_at: 2026-11-24

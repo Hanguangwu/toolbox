@@ -16,7 +16,7 @@
 1. 选定 `category` 与 1–5 个 `data/taxonomy.yaml` 中已有的标签；
 2. 按 `schema/tool.schema.json` 创建 `data/tools/<category>/<id>.yaml`；
 3. `id` 必须与文件名一致，`category` 必须与目录一致；
-4. `description` 一句话，禁营销词（校验器会告警）；`source` 填事实来源 URL（published 条目必填）；
+4. `description` 一句话，禁营销词（校验器会告警）；`how` 实现方式一句话（语言/架构/机制/协议，20–300 字，非必填但实现清晰的工具建议填，会进搜索索引）；`source` 填事实来源 URL（published 条目必填）；
 5. 跑 `pnpm validate`，0 error 后提交。
 
 **批次维护规则**：
